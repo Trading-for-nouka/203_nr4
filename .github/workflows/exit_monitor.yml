@@ -22,11 +22,11 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: python exit_monitor.py
-      - name: Commit nr_positions.json
+      - name: Commit positions.json
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add nr_positions.json
+          git add positions.json
           if ! git diff --cached --quiet; then
             git commit -m "Update NR positions [skip ci]"
             git push

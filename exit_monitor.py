@@ -21,11 +21,11 @@ def get_current_data(ticker):
     return current_price, atr
 
 def check_positions():
-    if not os.path.exists("nr_positions.json"):
+    if not os.path.exists("positions.json"):
         requests.post(DISCORD_WEBHOOK, json={"content": "✅ **【NR Exit 監視】** positions.jsonが存在しません。"})
         return
 
-    with open("nr_positions.json", "r", encoding="utf-8") as f:
+    with open("positions.json", "r", encoding="utf-8") as f:
         positions = json.load(f)
 
     if not positions:

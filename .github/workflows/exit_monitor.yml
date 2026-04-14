@@ -1,0 +1,33 @@
+name: NR4 Exit Monitor
+
+on:
+  schedule:
+    - cron: '11 8 * * 1-5'  # 平日 17:11 JST
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Exit Monitor
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python exit_monitor.py
+      - name: Commit nr_positions.json
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add nr_positions.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update NR positions [skip ci]"
+            git push
+          fi

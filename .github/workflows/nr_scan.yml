@@ -31,6 +31,6 @@ jobs:
           git add nr_watchlist.json
           if ! git diff --cached --quiet; then
             git commit -m "Update NR watchlist [skip ci]"
-            git pull --rebase origin main
-            git push
+            git pull --rebase origin HEAD
+            git push origin HEAD
           fi

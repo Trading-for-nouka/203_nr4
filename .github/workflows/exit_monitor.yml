@@ -29,5 +29,5 @@ jobs:
           git add positions.json
           if ! git diff --cached --quiet; then
             git commit -m "Update NR positions [skip ci]"
-            git push
+            git push origin HEAD
           fi

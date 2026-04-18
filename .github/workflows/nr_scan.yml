@@ -1,8 +1,8 @@
 name: NR4 Scanner
 
 on:
-  schedule:
-    - cron: '30 6 * * 1-5'  # 平日 15:30 JST
+  #schedule:
+    #- cron: '30 6 * * 1-5'  # 平日 15:30 JST
   workflow_dispatch:
 
 jobs:

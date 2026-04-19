@@ -11,7 +11,7 @@ DISCORD_WEBHOOK = os.environ.get("DISCORD_WEBHOOK")
 PAT_TOKEN = os.environ.get("PAT_TOKEN")
 
 def get_market_phase():
-    url = f"https://api.github.com/repos/trading-for-nouka/102_market_phase/contents/market_phase.json"  # ← 変更
+    url = f"https://api.github.com/repos/trading-for-nouka/102_market_phase/contents/market_phase.json"
     headers = {"Authorization": f"token {PAT_TOKEN}" if PAT_TOKEN else "", "Accept": "application/vnd.github.v3.raw"}
     try:
         response = requests.get(url, headers=headers, timeout=10)
@@ -77,7 +77,7 @@ def main():
     phase = get_market_phase()
     if phase == "CRASH": return
 
-    universe = pd.read_csv("universe496.csv", encoding="cp932")  # ← 変更
+    universe = pd.read_csv("universe496.csv", encoding="cp932")
     results = []
     
     for _, row in universe.iterrows():
@@ -99,28 +99,47 @@ def main():
         print("💬 Claude APIコメント生成中...")
         top_picks = generate_comments_batch(top_picks, max_count=5)
 
-        msg = f"🚀 **【厳選NR4 スキャン結果】 市場フェーズ: {phase}**\n"
-        msg += f"🔥 **トレンド最強・収束トップ5 (候補: {len(high_potential)}件)**\n"
-        msg += "━━━━━━━━━━━━━━━━━━━━\n"
+        msg = f"🚀 **【厳選NR4 スキャン結果】 市場フェーズ: {phase}**
+"
+        msg += f"🔥 **トレンド最強・収束トップ5 (候補: {len(high_potential)}件)**
+"
+        msg += "━━━━━━━━━━━━━━━━━━━━
+"
         for r in top_picks:
             inside_mark = "📦IB " if r["is_inside"] else ""
             msg += (
-                f"**{r['name']}** ({r['ticker']}) {inside_mark}| SMA200比: {r['strength']:.2f}\n"
-                f"　 📌 エントリー: {r['entry_price']}円 | 🛑 損切: {r['stop_loss']}円 | 🎯 利確: {r['target']}円（保有{r['hold_days']}日）\n"
+                f"**{r['name']}** ({r['ticker']}) {inside_mark}| SMA200比: {r['strength']:.2f}
+"
+                f"　 📌 エントリー: {r['entry_price']}制 | 🛑 損切: {r['stop_loss']}制 | 🎯 利確: {r['target']}制（保有{r['hold_days']}日）
+"
             )
             if r.get("comment"):
-                msg += f"　 💬 {r['comment']}\n"
+                msg += f"　 💬 {r['comment']}
+"
             msg += "\n"
         jst = datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=9)))
-        msg += f"🕒 {jst.strftime('%Y/%m/%d %H:%M')} JST\n"
+        msg += f"🕒 {jst.strftime('%Y/%m/%d %H:%M')} JST
+"
         send_discord(msg)
 
+        for r in top_picks:
+            send_discord(
+                f"🛒 **{r['name']}（{r['ticker']}）**
+"
+                f"　 📌 {r['entry_price']}圆 | 🛑 {r['stop_loss']}圆
+"
+                f"📦 {r['ticker']}|nr4|{r['entry_price']}|{r['stop_loss']}|{r['name']}"
+            )
+
     else:
-        msg = f"✅ 本日のスキャン完了（候補なし）\n"
-        msg += f"- 全取得銘柄数: {len(results)}件\n"
+        msg = f"✅ 本日のスキャン完了（候補なし）
+"
+        msg += f"- 全取得銘柄数: {len(results)}件
+"
         msg += "⚠️ 今回は条件を満たす銘柄はありませんでした。"
         jst = datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=9)))
-        msg += f"🕒 {jst.strftime('%Y/%m/%d %H:%M')} JST\n"
+        msg += f"🕒 {jst.strftime('%Y/%m/%d %H:%M')} JST
+"
         send_discord(msg)
 
 if __name__ == "__main__":

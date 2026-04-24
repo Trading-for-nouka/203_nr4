@@ -1,67 +1,28 @@
 [
   {
-    "ticker": "1332.T",
-    "name": "ニッスイ",
+    "ticker": "2784.T",
+    "name": "アルフレッサ　ホールディングス",
     "type": "NR4",
     "is_inside": false,
     "is_compressed": true,
-    "strength": 1.0795336887910483,
-    "entry_price": 1240,
-    "stop_loss": 1222,
-    "target": 1277,
+    "strength": 1.0399283485968747,
+    "entry_price": 2401,
+    "stop_loss": 2366,
+    "target": 2473,
     "hold_days": 5,
-    "entry_date": "2026-04-23"
+    "entry_date": "2026-04-24"
   },
   {
-    "ticker": "3231.T",
-    "name": "野村不動産ホールディングス",
+    "ticker": "7167.T",
+    "name": "めぶきフィナンシャルグループ",
     "type": "NR4",
     "is_inside": false,
     "is_compressed": true,
-    "strength": 1.0626841061299153,
-    "entry_price": 1010,
-    "stop_loss": 999,
-    "target": 1040,
+    "strength": 1.1939289508402944,
+    "entry_price": 1239,
+    "stop_loss": 1210,
+    "target": 1276,
     "hold_days": 5,
-    "entry_date": "2026-04-23"
-  },
-  {
-    "ticker": "4091.T",
-    "name": "日本酸素ホールディングス",
-    "type": "NR4",
-    "is_inside": false,
-    "is_compressed": true,
-    "strength": 1.05906247692841,
-    "entry_price": 5707,
-    "stop_loss": 5600,
-    "target": 5878,
-    "hold_days": 5,
-    "entry_date": "2026-04-23"
-  },
-  {
-    "ticker": "5019.T",
-    "name": "出光興産",
-    "type": "NR4",
-    "is_inside": false,
-    "is_compressed": true,
-    "strength": 1.1592206757004395,
-    "entry_price": 1357,
-    "stop_loss": 1324,
-    "target": 1398,
-    "hold_days": 5,
-    "entry_date": "2026-04-23"
-  },
-  {
-    "ticker": "8308.T",
-    "name": "りそなホールディングス",
-    "type": "NR4",
-    "is_inside": false,
-    "is_compressed": true,
-    "strength": 1.1370582629792885,
-    "entry_price": 1843,
-    "stop_loss": 1796,
-    "target": 1898,
-    "hold_days": 5,
-    "entry_date": "2026-04-23"
+    "entry_date": "2026-04-24"
   }
 ]

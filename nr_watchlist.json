@@ -1,28 +1,54 @@
 [
   {
-    "ticker": "2784.T",
-    "name": "アルフレッサ　ホールディングス",
+    "ticker": "4631.T",
+    "name": "ＤＩＣ",
     "type": "NR4",
     "is_inside": false,
     "is_compressed": true,
-    "strength": 1.0399283485968747,
-    "entry_price": 2401,
-    "stop_loss": 2366,
-    "target": 2473,
+    "strength": 1.0053639738510778,
+    "entry_price": 3617,
+    "stop_loss": 3560,
+    "target": 3726,
     "hold_days": 5,
-    "entry_date": "2026-04-24"
+    "entry_date": "2026-04-27"
   },
   {
-    "ticker": "7167.T",
-    "name": "めぶきフィナンシャルグループ",
+    "ticker": "5844.T",
+    "name": "京都フィナンシャルグループ",
     "type": "NR4",
     "is_inside": false,
     "is_compressed": true,
-    "strength": 1.1939289508402944,
-    "entry_price": 1239,
-    "stop_loss": 1210,
-    "target": 1276,
+    "strength": 1.267283301445024,
+    "entry_price": 4242,
+    "stop_loss": 4143,
+    "target": 4369,
     "hold_days": 5,
-    "entry_date": "2026-04-24"
+    "entry_date": "2026-04-27"
+  },
+  {
+    "ticker": "6861.T",
+    "name": "キーエンス",
+    "type": "NR4",
+    "is_inside": false,
+    "is_compressed": true,
+    "strength": 1.2738788866160033,
+    "entry_price": 73317,
+    "stop_loss": 72730,
+    "target": 75517,
+    "hold_days": 5,
+    "entry_date": "2026-04-27"
+  },
+  {
+    "ticker": "7202.T",
+    "name": "いすゞ自動車",
+    "type": "NR4",
+    "is_inside": false,
+    "is_compressed": true,
+    "strength": 1.0210023662732282,
+    "entry_price": 2252,
+    "stop_loss": 2210,
+    "target": 2320,
+    "hold_days": 5,
+    "entry_date": "2026-04-27"
   }
 ]

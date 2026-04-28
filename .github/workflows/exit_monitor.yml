@@ -26,8 +26,10 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add positions.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Update NR positions [skip ci]"
-            git push origin HEAD
+          if [ -f positions.json ]; then
+            git add positions.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Update NR positions [skip ci]"
+              git push origin HEAD
+            fi
           fi

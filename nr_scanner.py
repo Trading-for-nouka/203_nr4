@@ -17,11 +17,11 @@ def get_market_phase():
         response = requests.get(url, headers=headers, timeout=10)
         if response.status_code == 200:
             return response.json().get("phase", "NEUTRAL")
-    except: pass
+    except Exception as e:
+        print(f"⚠️ 市場フェーズ取得エラー: {e}")
     return "NEUTRAL"
 
 def get_nr_data(ticker, name):
-    from datetime import datetime
     
     df = yf.download(ticker, period="250d", progress=False, auto_adjust=True)
     if len(df) < 200: return None

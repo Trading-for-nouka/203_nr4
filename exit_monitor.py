@@ -42,7 +42,7 @@ def check_positions():
             entry_price = float(pos["entry_price"])
             stop_loss   = float(pos.get("stop_loss", entry_price * 0.97))  # stop_lossがなければ-3%
             entry_date  = datetime.strptime(pos["entry_date"], "%Y-%m-%d")
-            days_held   = (datetime.now() - entry_date).days
+            days_held = len(pd.bdate_range(start=entry_date, end=datetime.now())) - 1
 
             result = get_current_data(ticker)
             if result is None:

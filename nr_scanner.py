@@ -99,7 +99,7 @@ def main():
         print("💬 Claude APIコメント生成中...")
         top_picks = generate_comments_batch(top_picks, max_count=5)
 
-        msg = f"🚀 **【厳選NR4 スキャン結果】 市場フェーズ: {phase}**\n"
+        msg = f"[203_nr4] 🚀 **【厳選NR4 スキャン結果】 市場フェーズ: {phase}**\n"
         msg += f"🔥 **トレンド最強・収束トップ5 (候補: {len(high_potential)}件)**\n"
         msg += "━━━━━━━━━━━━━━━━━━━━\n"
         for r in top_picks:
@@ -123,7 +123,7 @@ def main():
             )
 
     else:
-        msg = f"✅ 本日のスキャン完了（候補なし）\n"
+        msg = f"[203_nr4] ✅ 本日のスキャン完了（候補なし）\n"
         msg += f"- 全取得銘柄数: {len(results)}件\n"
         msg += "⚠️ 今回は条件を満たす銘柄はありませんでした。"
         jst = datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=9)))

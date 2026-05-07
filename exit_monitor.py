@@ -22,14 +22,14 @@ def get_current_data(ticker):
 
 def check_positions():
     if not os.path.exists("positions.json"):
-        requests.post(DISCORD_WEBHOOK, json={"content": "✅ **【NR Exit 監視】** positions.jsonが存在しません。"})
+        requests.post(DISCORD_WEBHOOK, json={"content": "[203_nr4] ✅ **【NR Exit 監視】** positions.jsonが存在しません。"})
         return
 
     with open("positions.json", "r", encoding="utf-8") as f:
         positions = json.load(f)
 
     if not positions:
-        requests.post(DISCORD_WEBHOOK, json={"content": "✅ **【NR Exit 監視完了】** 保有ポジションなし。"})
+        requests.post(DISCORD_WEBHOOK, json={"content": "[203_nr4] ✅ **【NR Exit 監視完了】** 保有ポジションなし。"})
         return
 
     exit_alerts  = []   # 決済推奨
@@ -86,7 +86,7 @@ def check_positions():
             print(f"エラー {pos.get('ticker','?')}: {e}")
 
     # --- Discord通知 ---
-    msg = "📊 **【NR Exit 監視レポート】**\n"
+    msg = "[203_nr4] 📊 **【NR Exit 監視レポート】**\n"
 
     if exit_alerts:
         msg += "\n🚨 **【決済推奨】**\n"
